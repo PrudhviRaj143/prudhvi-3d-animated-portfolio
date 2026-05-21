@@ -1,0 +1,252 @@
+/* ── Contact Section ── */
+.contact-section {
+  position: relative;
+  z-index: 2;
+  background-color: var(--backgroundColor);
+  padding-bottom: 0;
+  margin-top: 60px;
+}
+
+.contact-inner {
+  margin: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Heading ── */
+.contact-heading {
+  padding: 80px 0 70px;
+}
+
+.contact-label {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  font-weight: 400;
+  margin: 0 0 24px;
+  opacity: 0.8;
+}
+
+.contact-title {
+  font-size: clamp(44px, 7vw, 90px);
+  font-weight: 600;
+  line-height: 1.0;
+  margin: 0;
+  letter-spacing: -1px;
+  color: #eae5ec;
+}
+
+.contact-title span {
+  color: var(--accentColor);
+  font-weight: 300;
+}
+
+/* ── Info Grid ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 0;
+  padding-right: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-col:first-child {
+  padding-right: 40px;
+}
+
+.contact-col:last-child {
+  border-right: none;
+  padding-left: 40px;
+  padding-right: 0;
+}
+
+.contact-col:nth-child(2) {
+  padding-left: 40px;
+}
+
+/* ── Column Label ── */
+.contact-col-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+/* ── Link rows ── */
+.contact-link-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-link-line:hover {
+  color: var(--accentColor);
+  border-color: rgba(94, 234, 212, 0.2);
+}
+
+.contact-link-arrow {
+  font-size: 16px;
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+  color: var(--accentColor);
+}
+
+.contact-link-line:hover .contact-link-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Education ── */
+.contact-edu {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.contact-edu-degree {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 3px;
+}
+
+.contact-edu-school {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 2px;
+  letter-spacing: 0.3px;
+}
+
+.contact-edu-year {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--accentColor);
+  opacity: 0.7;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* ── Footer strip ── */
+.contact-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.contact-copy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 1px;
+}
+
+.contact-credit {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.5px;
+}
+
+.contact-credit span {
+  color: var(--accentColor);
+  opacity: 0.8;
+}
+
+/* ── Responsive ── */
+@media only screen and (max-width: 1024px) {
+  .contact-heading {
+    padding: 60px 0 50px;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-col:nth-child(3) {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 0;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    align-items: start;
+    gap: 0 40px;
+  }
+
+  .contact-col:nth-child(3) .contact-col-label {
+    grid-column: 1 / -1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-section {
+    margin-top: 30px;
+  }
+
+  .contact-heading {
+    padding: 50px 0 40px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-col {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px 0;
+  }
+
+  .contact-col:first-child {
+    padding-right: 0;
+  }
+
+  .contact-col:nth-child(2) {
+    padding-left: 0;
+  }
+
+  .contact-col:last-child {
+    padding-left: 0;
+    border-bottom: none;
+  }
+
+  .contact-col:nth-child(3) {
+    grid-column: unset;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 20px;
+  }
+}

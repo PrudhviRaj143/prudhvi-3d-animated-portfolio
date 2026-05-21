@@ -1,0 +1,182 @@
+/* ── Root ──────────────────────────────────────────── */
+.ls-root {
+  position: fixed;
+  inset: 0;
+  background-color: #050810;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* curtain-up exit */
+  transition: transform 0.95s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.ls-exit {
+  transform: translateY(-100%);
+}
+
+/* ── Corner labels ─────────────────────────────────── */
+.ls-corner {
+  position: absolute;
+  top: 28px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 400;
+  animation: ls-fade-in 0.6s ease 0.1s both;
+}
+.ls-tl { left: 4%; }
+.ls-tr { right: 4%; }
+
+/* ── Center ────────────────────────────────────────── */
+.ls-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ── Decorative rule ───────────────────────────────── */
+.ls-rule {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ls-rule-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 0;
+}
+.ls-rule-top .ls-rule-line {
+  animation: ls-expand 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+.ls-rule-bottom .ls-rule-line {
+  animation: ls-expand 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+/* ── Name ──────────────────────────────────────────── */
+.ls-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.ls-name-row {
+  overflow: hidden;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.ls-name-word {
+  display: block;
+  font-family: "Geist", sans-serif;
+  font-size: clamp(38px, 8vw, 80px);
+  font-weight: 500;
+  letter-spacing: 6px;
+  color: #eae5ec;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(110%);
+  animation: ls-slide-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+.ls-name-accent {
+  color: #5eead4;
+  font-weight: 300;
+}
+
+/* ── Role ──────────────────────────────────────────── */
+.ls-role {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 300;
+}
+.ls-role-item {
+  opacity: 0;
+  animation: ls-fade-up 0.7s ease forwards;
+}
+.ls-dot {
+  color: #5eead4;
+  opacity: 0;
+  animation: ls-fade-in 0.4s ease forwards;
+  animation-delay: 0.55s;
+}
+
+/* ── Progress ──────────────────────────────────────── */
+.ls-progress {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(340px, 85vw);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: ls-fade-in 0.6s ease 0.4s both;
+}
+.ls-bar-track {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.ls-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5eead4, #22d3ee);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(94, 234, 212, 0.5);
+  transition: width 0.15s ease;
+}
+.ls-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ls-loading-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+}
+.ls-pct {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #5eead4;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Animation delays ──────────────────────────────── */
+.ls-delay-1 { animation-delay: 0.2s; }
+.ls-delay-2 { animation-delay: 0.32s; }
+.ls-delay-3 { animation-delay: 0.44s; }
+.ls-delay-4 { animation-delay: 0.6s; }
+.ls-delay-5 { animation-delay: 0.72s; }
+.ls-delay-6 { animation-delay: 0.84s; }
+
+/* ── Keyframes ─────────────────────────────────────── */
+@keyframes ls-slide-up {
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes ls-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ls-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ls-expand {
+  to { width: min(420px, 80vw); }
+}
